@@ -2,7 +2,10 @@
  * relocate_kernel.S - put the kernel image in place to boot
  */
 
+<<<<<<< HEAD
 #include <linux/linkage.h>
+=======
+>>>>>>> 8dfe465... ARM: convert all "mov.* pc, reg" to "bx reg" for ARMv6+
 #include <asm/assembler.h>
 #include <asm/kexec.h>
 
