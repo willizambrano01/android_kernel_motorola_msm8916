@@ -40,7 +40,7 @@ fi
 DEVICE="$1"
 
 #Variable
-VERSION="R54"
+VERSION="R21"
 USUARIO="carlos"
 DIRECTORIO="/home/$USUARIO/"
 KERNEL="/home/$USUARIO/android_kernel_motorola_msm8916/arch/arm/boot/zImage"
@@ -57,7 +57,7 @@ nocol='\033[0m'
 
 #Borrando Basura
 echo -e "Borrando basura"
-make clean && make mrproper
+#make clean && make mrproper
 
 #Configurando kernel
 export KBUILD_BUILD_USER="CarlosArriaga"
