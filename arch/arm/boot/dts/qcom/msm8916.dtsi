@@ -24,7 +24,7 @@
 	interrupt-parent = <&intc>;
 
 	chosen {
-		bootargs = "sched_enable_hmp=1";
+		bootargs = "boot_cpus=0,1,2,3 sched_enable_hmp=1";
 	};
 
 	aliases {
@@ -309,7 +309,6 @@
 		clocks = <&clock_gcc clk_gpll0_ao_clk_src>,
 			 <&clock_gcc clk_a53sspll>;
 		clock-names = "clk-4", "clk-5";
-		#clock-cells = <1>;
 		qcom,speed0-bin-v0 =
 			<          0 0>,
 			<  200000000 1>,
@@ -319,7 +318,15 @@
 			<  998400000 5>,
 			< 1094400000 6>,
 			< 1152000000 7>,
-			< 1209600000 8>;
+			< 1209600000 8>,
+ 			< 1248000000 9>,
+			< 1363200000 10>,
+			< 1401600000 11>,
+			< 1497600000 12>,
+			< 1593600000 13>,
+			< 1689600000 14>,
+			< 1785600000 15>,
+			< 1881600000 16>;
 
 		qcom,speed1-bin-v0 =
 			<          0 0>,
@@ -340,7 +347,15 @@
 			<  998400000 5>,
 			< 1094400000 6>,
 			< 1152000000 7>,
-			< 1209600000 8>;
+			< 1209600000 8>,
+			< 1248000000 9>,
+			< 1363200000 10>,
+			< 1401600000 11>,
+			< 1497600000 12>,
+			< 1593600000 13>,
+			< 1689600000 14>,
+			< 1785600000 15>,
+			< 1881600000 16>;
 
 		qcom,speed2-bin-v1 =
 			<          0 0>,
@@ -352,7 +367,14 @@
 			< 1094400000 6>,
 			< 1152000000 7>,
 			< 1209600000 8>,
-			< 1363200000 9>;
+			< 1248000000 9>,
+			< 1363200000 10>,
+			< 1401600000 11>,
+			< 1497600000 12>,
+			< 1593600000 13>,
+			< 1689600000 14>,
+			< 1785600000 15>,
+			< 1881600000 16>;
 	};
 
 	cpubw: qcom,cpubw {
@@ -397,7 +419,14 @@
 			 < 1094400 >,
 			 < 1152000 >,
 			 < 1209600 >,
-			 < 1363200 >;
+			 < 1248000 >,
+			 < 1363200 >,
+			 < 1401600 >,
+			 < 1497600 >,
+			 < 1593600 >,
+			 < 1689600 >,
+			 < 1785600 >,
+			 < 1881600 >;
 	};
 
 	qcom,sps {
@@ -528,7 +557,7 @@
 		compatible = "qcom,android-usb";
 		reg = <0x086000c8 0xc8>;
 		qcom,pm-qos-latency = <2 1001 12701>;
-		qcom,streaming-func = "rndis","mtp";
+		qcom,streaming-func = "mtp";
 		qcom,android-usb-uicc-nluns = /bits/ 8 <1>;
 	};
 
@@ -1363,10 +1392,8 @@
 		clocks = <&clock_rpm clk_xo_wlan_clk>,
 			 <&clock_rpm clk_rf_clk2>,
 			 <&clock_debug clk_gcc_debug_mux>,
-			 <&clock_gcc clk_wcnss_m_clk>,
-			 <&clock_gcc clk_gcc_snoc_qosgen_clk>;
-		clock-names = "xo", "rf_clk", "measure", "wcnss_debug",
-				"snoc_qosgen";
+			 <&clock_gcc clk_wcnss_m_clk>;
+		clock-names = "xo", "rf_clk", "measure", "wcnss_debug";
 
 		qcom,has-autodetect-xo;
 		qcom,wlan-rx-buff-count = <512>;
@@ -1684,11 +1711,6 @@
 		/* GPIO output to mss */
 		qcom,gpio-force-stop = <&smp2pgpio_ssr_smp2p_1_out 0 0>;
 		linux,contiguous-region = <&modem_adsp_mem>;
-
-		mba_mss: qcom,mba-mem@0 {
-			compatible = "qcom,pil-mba-mem";
-			linux,contiguous-region = <&mba_mem>;
-		};
 	};
 
 	qcom,vidc@1d00000 {
