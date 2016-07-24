@@ -40,7 +40,7 @@ fi
 DEVICE="$1"
 
 #Variable
-VERSION="R24"
+VERSION="R27"
 USUARIO="carlos"
 DIRECTORIO="/home/$USUARIO/"
 KERNEL="/home/$USUARIO/android_kernel_motorola_msm8916/arch/arm/boot/zImage"

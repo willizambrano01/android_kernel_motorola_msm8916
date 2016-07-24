@@ -90,12 +90,12 @@ static unsigned int *cache_select(unsigned int reg)
                 case MSM8X16_WCD_A_CDC_TX2_VOL_CTL_GAIN:
 			out = &cached_regs[12];
 			break;
-                case MSM8X16_WCD_A_CDC_TX3_VOL_CTL_GAIN:
+/*               case MSM8X16_WCD_A_CDC_TX3_VOL_CTL_GAIN: 
 			out = &cached_regs[13];
 			break;
                 case MSM8X16_WCD_A_CDC_TX4_VOL_CTL_GAIN:
 			out = &cached_regs[14];
-			break;
+			break; */
 #ifdef UNSUPPORTED_MSM8x16_WCD
                 case MSM8X16_WCD_A_CDC_TX5_VOL_CTL_GAIN:
 			out = &cached_regs[15];
@@ -182,8 +182,8 @@ int snd_hax_reg_access(unsigned int reg)
 			break;
 		case MSM8X16_WCD_A_CDC_TX1_VOL_CTL_GAIN:
 		case MSM8X16_WCD_A_CDC_TX2_VOL_CTL_GAIN:
-		case MSM8X16_WCD_A_CDC_TX3_VOL_CTL_GAIN:
-		case MSM8X16_WCD_A_CDC_TX4_VOL_CTL_GAIN:
+//		case MSM8X16_WCD_A_CDC_TX3_VOL_CTL_GAIN:
+//		case MSM8X16_WCD_A_CDC_TX4_VOL_CTL_GAIN:
 #ifdef UNSUPPORTED_MSM8x16_WCD
 		case MSM8X16_WCD_A_CDC_TX5_VOL_CTL_GAIN:
 		case MSM8X16_WCD_A_CDC_TX6_VOL_CTL_GAIN:

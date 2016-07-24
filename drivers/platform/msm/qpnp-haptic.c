@@ -350,6 +350,11 @@ static ssize_t qpnp_hap_dump_regs_show(struct device *dev,
 	return count;
 }
 
+void set_vibrate(int value)
+c{
+	qpnp_hap_td_enable(&ghap->timed_dev, value);
+}
+
 /* play irq handler */
 static irqreturn_t qpnp_hap_play_irq(int irq, void *_hap)
 {
